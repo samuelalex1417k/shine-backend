@@ -12,7 +12,7 @@ User = get_user_model()
 # Check if superuser already exists
 if not User.objects.filter(username="admin").exists():
     User.objects.create_superuser(
-        username="shineadmin", 
+        username="shine", 
         email="shineadmin@gmail.com", 
         password="shine123"
     )
