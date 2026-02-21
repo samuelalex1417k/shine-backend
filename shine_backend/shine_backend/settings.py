@@ -108,7 +108,14 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://shine-frontend-self.vercel.app",
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
