@@ -105,8 +105,8 @@ USE_TZ = True
 
 
 # STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -124,7 +124,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "samuelalemseged185@gmail.com"
 EMAIL_HOST_PASSWORD = "aprtehidmjtnkcjq"  # Your Gmail App Password
