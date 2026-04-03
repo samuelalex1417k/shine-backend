@@ -4,6 +4,7 @@ from rest_framework import status
 from django.core.mail import send_mail
 from .models import ContactMessage
 from .serializers import ContactMessageSerializer
+from .utils import send_email
 
 
 class ContactMessageView(APIView):
@@ -14,20 +15,15 @@ class ContactMessageView(APIView):
             contact = serializer.save()
 
             # Send email to admin
-            send_mail(
-                subject=f"New Contact Message from {contact.name}",
-                message=f"""
-Name: {contact.name}
-Email: {contact.email}
-Phone: {contact.phone}
-
-Message:
-{contact.message}
-                """,
-                from_email=None,
-                recipient_list=["samuelalemseged185@gmail.com"],
-                fail_silently=False,
-            )
+            send_email(
+    "samuelalemseged185@gmail.com",
+    f"New Contact Message from {contact.name}",
+    f"""
+    <p><strong>Name:</strong> {contact.name}</p>
+    <p><strong>Email:</strong> {contact.email}</p>
+    <p><strong>Message:</strong><br>{contact.message}</p>
+    """
+)
 
             return Response({"message": "Message sent successfully"}, status=201)
 
